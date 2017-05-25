@@ -241,14 +241,6 @@ if (typeof module !== "undefined" && module !== null) {
     });
 }
 
-String.prototype.endsWithAny = function () {
-    var strArray = Array.prototype.slice.call(arguments),
-        $this = this.toLowerCase().toString();
-    for (var i = 0; i < strArray.length; i++) {
-        if ($this.indexOf(strArray[i], $this.length - strArray[i].length) !== -1) return true;
-    }
-    return false;
-};
 
 var saveTextAs = saveTextAs
 || (function (textContent, fileName, charset) {
@@ -279,11 +271,11 @@ var saveTextAs = saveTextAs
         var doc = saveTxtWindow.document;
         doc.open('text/html', 'replace');
         doc.charset = charset;
-        if (fileName.endsWithAny('.htm', '.html')) {
+        if (/\.html?$/i.test(fileName)) {
             doc.close();
             doc.body.innerHTML = '\r\n' + textContent + '\r\n';
         } else {
-            if (!fileName.endsWithAny('.txt')) fileName += '.txt';
+            if (!/\.txt$/i.test(fileName)) fileName += '.txt';
             doc.write(textContent);
             doc.close();
         }
