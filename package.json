@@ -1,4 +1,13 @@
 {
-  "name": "FileSaver.js",
-  "version": "1.0.0"
+  "name": "@regru/filesaver",
+  "version": "1.0.0",
+  "description": "FileSaver.js",
+  "main": "FileSaver.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regru/FileSaver.js.git"
+  },
+  "author": "Eli Gray <~@eligrey.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/regru/FileSaver.js#readme"
 }
